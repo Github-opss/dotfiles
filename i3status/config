@@ -1,0 +1,68 @@
+general {
+        output_format = "i3bar"
+        colors = false
+        markup = pango
+        interval = 5
+        color_good = '#88b090'
+		color_degraded = '#ccdc90'
+		color_bad = '#e89393'
+}
+
+order += "load"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "disk /home"
+order += "ethernet enp1s0"
+order += "wireless wlp2s0"
+order += "volume master"
+order += "battery 1"
+order += "tztime local"
+
+load {
+        format = " %1min"
+}
+
+disk "/" {
+        format = " %free Free"
+}
+
+disk "/home" {
+        format = " %free Free"
+}
+
+#ethernet enp1s0 {
+#        format_up = " %ip"
+#        format_down = "<span background='#88c0d0'>  Disconnected </span>"
+#}
+
+wireless wlp2s0 {
+        format_up = " %essid"
+        format_down = " Disconnected"
+}
+
+volume master {
+        format = " %volume"
+        format_muted = "<span background='#ebcb8b'>  Muted </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+battery 1 {
+	last_full_capacity = true
+        format = "%status %percentage"
+        format_down = "No Battery"
+        status_chr = " "
+        status_bat = " "
+    		status_unk = " "
+    		status_full = " "
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+		format = "%time"
+		format_time = " %a %-d %b %H:%M"
+}
+
+
