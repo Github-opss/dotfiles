@@ -1,10 +1,10 @@
 #! /bin/bash
-read -p "Enter your username" : n1
-echo "Welcome $n1"
-echo 
+echo "Enter username :"
+read n1
+ 
 #echo "Installing rpm fusion"
-dnf install \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+##dnf install \
+##  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 echo
 #echo "Updating system"
 #echo "fastestmirror=true" >> /etc/dnf/dnf.conf
